@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo usuário</title>
+</head>
+<body>
+    <h3>Novo usuário</h3>
+
+    <form class="" action="" method="post">
+        {% csrf_token %}
+
+        {{ User.as_p }}
+        <button class="" type="submit" name="button">Cadastrar</button>
+
+    </form>
+</body>
+</html>

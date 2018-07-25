@@ -1,0 +1,39 @@
+{% extends "Tarefa/base.html" %}
+{% load widget_tweaks %}
+
+<div class="row">
+
+    {% block body %}
+
+
+        <form action="" method="post">
+         {% csrf_token %}
+            <br>
+            <br>
+            <br>
+            <h3>Nova categoria</h3>
+            <br>
+            <div class="form-group">
+                <label for="{{ form.nome.id_for_label }}">Nome</label>
+                {{ form.nome | attr:"autofocus" }}
+            </div>
+
+            <div class="form-group">
+                <label for="{{ form.nome.id_for_label }}">Descrição</label>
+                {{ form.descricao }}
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-dark" type="submit" name="button">
+                    Salvar
+                </button>
+
+
+            </div>
+
+        </form>
+
+
+    {% endblock body %}
+
+</div>

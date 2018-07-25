@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+        <h3>
+            Faça o login
+        </h3>
+        {% if messages   %}
+            {% for messages in messages %}
+            {{ messages }}
+            {% endfor %}
+        {% endif %}
+        <form class="" action="" method="POST">
+            {% csrf_token %}
+            <label for="" >Usuário</label>
+            <input class="" autocomplete="off" type = "text" id="username" value = "" placeholder="Informe o usuário">
+            <label for="" >Senha</label>
+            <input  autocomplete="off" class="" type = "password" id="password" value = "" placeholder="Informe a senha">
+
+            <button class="btn btn-primary" type="submit" name="button">Login</button>
+
+
+
+        </form>
+</body>
+</html>

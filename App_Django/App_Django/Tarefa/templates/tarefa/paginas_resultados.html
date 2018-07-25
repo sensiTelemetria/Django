@@ -1,0 +1,73 @@
+{% extends "tarefa/base.html" %}
+{% load  widget_tweaks %}
+
+<html lang="pt-br">
+
+<div class="row">
+
+    {% block body %}
+
+        <br>
+        <br>
+        <br>
+
+
+        <h2>Busca por tarefa: <strong>{{ q }}</strong></h2>
+
+
+        <br>
+
+
+        {% if result%}
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Tarefa</th>
+                        <th>Descrição</th>
+                        <th>Data final</th>
+                        <th>Prioridade</th>
+                        <th>Categoria</th>
+                        <th colspan="2" style = "text-align:center">Ações</th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                {% for t in result %}
+                    <tr>
+                        <td> {{ t.id }}</td>
+                        <td> {{ t.nome }}</td>
+                        <td> {{ t.descricao }}</td>
+                        <td> {{ t.date }}</td>
+                        <td> {{ t.get_prioridade_display }}</td>
+                        <td> {{ t.categoria }}</td>
+                        <td><a class="btn btn-outline-info btn-sm" href="/tarefa/editar-tarefa/{{ t.id }}">Editar</a></td>
+                        <td><a class="btn btn-outline-danger btn-sm" href="/tarefa/delete-tarefa-search/{{ t.id }}/{{ q }}">Excluir</a></td>
+                    </tr>
+                {% endfor %}
+
+
+                </tbody>
+
+
+            </table>
+
+        {% else %}
+
+                <div class="alert alert-dark">
+                    <strong>
+                    <p> Não existem tarefas</p>
+                    </strong>
+                </div>
+
+        {% endif %}
+
+
+
+    {% endblock body %}
+
+</div>
+
+</html>

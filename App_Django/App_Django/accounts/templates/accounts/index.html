@@ -1,0 +1,62 @@
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Cadastro</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static "css/bootstrap.min.css" %}" rel="stylesheet">
+
+
+  </head>
+
+  <body>
+     <div class="row">
+        <div  class="container">
+
+            <br>
+
+            <h3>Cadrastro de novo usuário</h3>
+
+            <form autocomplete="off" ACTION="" method="POST">
+                {% csrf_token %}
+                <b><br>
+                <div class="form-group center">
+                    <label for="{{User.first_name.id_for_label}}" >Primeiro nome</label>
+                     {{ User.first_name| attr:"placeholder: Não deve conter caracteres especiais"| add_class:'form-control'|attr:"autofocus"}}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{User.last_name.id_for_label}}" >Sobrenome</label>
+                     {{ User.last_name| attr:"placeholder:Não deve conter caracteres especiais"| add_class:'form-control'}}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{User.username.id_for_label}}" >Usuário</label>
+                     {{ User.username| attr:"placeholder:Não deve conter caracteres especiais"| attr:"name:username" |  add_class:'form-control'}}
+                </div>
+
+                <div class="form-group">
+                    <label for="{{User.password.id_for_label}}" >Senha</label>
+                     {{ User.password| attr:"placeholder:Digite sua senha aqui"|attr:"type:password"|attr:"name:password"|add_class:'form-control'}}
+
+                </div>
+                </b>
+
+                    <button class="btn btn-primary" type="submit" name="button">Cadastrar</button>
+
+
+
+            </form>
+
+        </div>
+     </div>
+  </body>
+</html>

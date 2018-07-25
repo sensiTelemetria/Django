@@ -1,0 +1,61 @@
+{% extends "Tarefa/base.html" %}
+
+
+<div class="row">
+
+    {% block body %}
+
+        <h3><br><br>Lista de categorias</h3>
+        <br>
+
+        {% if menssage %}
+            {% for message in messages %}
+
+                <div class="alert danger-dark">
+                    <strong>
+                    {{ message }}
+                    </strong>
+                </div>
+
+            {% endfor %}
+         {% endif %}
+
+          {% if categoria %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Categoria</th>
+                    <th>Descrição</th>
+                    <th colspan="2" style = "text-align:center">Ações</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+            {% for t in categoria %}
+                <tr>
+                    <td> {{ t.id }}</td>
+                    <td> {{ t.nome }}</td>
+                    <td> {{ t.descricao }}</td>
+                    <td><a class="btn btn-outline-info btn-sm" href="/tarefa/editar-categoria/{{ t.id }}">Editar</a></td>
+                    <td><a class="btn btn-outline-danger btn-sm" href="/tarefa/delete-categoria/{{ t.id }}">Excluir</a></td>
+                </tr>
+            {% endfor %}
+
+
+            </tbody>
+        </table>
+
+              {% else %}
+                <div class="alert alert-dark">
+                    <strong>
+                    <p> Não existem categorias</p>
+                    </strong>
+                </div>
+        {% endif %}
+        <a class="btn btn-outline-primary" href="/tarefa/nova-categoria">Adicionar categoria</a>
+
+    {% endblock body %}
+
+</div>
