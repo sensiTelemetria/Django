@@ -11,4 +11,4 @@ class alarme(models.Model):
     trigger = models.FloatField(verbose_name='Valor do Trigger')
 
     def __str__(self):
-        return str(self.id) + ' - ' + str(self.trigger)
+        return str(self.id) + ' | ' + str(self.trigger)

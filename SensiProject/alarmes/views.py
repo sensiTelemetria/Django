@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from alarmes.models import alarme
 
 
 # Create your views here.
@@ -17,4 +18,11 @@ def novo_alarme(request):
     else:
         form = alarmeForm()
 
-    return render(request, '../../alarmes/templates/novo_alarme.html', {'form': form})
+    return render(request, 'novo_alarme.html', {'form': form})
+
+
+
+def alarmes(request):
+    alarmes = alarme.objects.all()
+    return render(request,'lista_alarmes.html', {'alarmes': alarmes})
+

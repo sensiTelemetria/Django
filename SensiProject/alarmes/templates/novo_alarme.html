@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% extends "base.html" %}
+{% load widget_tweaks %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,15 +17,15 @@
                             {%  csrf_token %}
                             <div class="form-group">
                             <label for="{{ form.tags.id_for_label }}">Tags</label>
-                            {{ form.tags }}
+                            {{ form.tags |add_class:"form-control selectpicker"}}
                             </div>
                             <div class="form-group">
                             <label for="{{ form.usuarios.id_for_label }}">Usuários</label>
-                            {{ form.usuarios }}
+                            {{ form.usuarios |add_class:"form-control" }}
                             </div>
                             <div class="form-group">
                             <label for="{{ form.trigger.id_for_label }}">Trigger</label>
-                            {{ form.trigger }}
+                            {{ form.trigger |add_class:"form-control" }}
                             </div>
                                 <button class="btn btn-primary" name="button">Criar Alarme</button>
                                 <button class="btn btn-link" name="button">Limpar</button>

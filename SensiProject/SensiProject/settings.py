@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'tags',
     'alarmes',
     'usuarios',
+    'widget_tweaks'
 ]
 
 MIDDLEWARE = [

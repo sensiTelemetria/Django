@@ -20,7 +20,7 @@ from alarmes import urls as alarmes_url
 from usuarios import urls as usuarios_url
 
 urlpatterns = [
-    path('home/', core_views.home),
+    path('home/', core_views.home, name = 'Sensi'),
     path('admin/', admin.site.urls),
     path('alarmes/',include(alarmes_url)),
     path('usuarios/',include(usuarios_url)),
