@@ -36,7 +36,7 @@ def editar_alarme(request, id):
         form = alarmeForm(request.POST, instance= alarme_edit)
         if form.is_valid():
             form.save()
-            return redirect('lista_alarmes')
+            return redirect('lista_alarmes.html')
     else:
         form = alarmeForm(instance=alarme_edit)
     return render(request,'novo_alarme.html', {'form': form})

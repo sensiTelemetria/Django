@@ -27,11 +27,11 @@ def usuarios(request):
         if form.is_valid():
             form.save()
     usuarios = usuario.objects.all()
-    return render(request, 'lista_usuarios', {'usuarios': usuarios})
+    return render(request, 'lista_usuarios.html', {'usuarios': usuarios})
 
 def deleta_usuario(request, id):
     usuario.objects.get(id=id).delete()
-    return redirect('lista_usuarios')
+    return redirect('lista_usuarios.html')
 
 def editar_usuario(request, id):
     usuario_edit = get_object_or_404( usuario, id=id)
@@ -39,7 +39,7 @@ def editar_usuario(request, id):
         form = usuarioForm(request.POST, instance= usuario_edit)
         if form.is_valid():
             form.save()
-            return redirect('lista_usuarios')
+            return redirect('lista_usuarios.html')
     else:
         form = usuarioForm(instance=usuario_edit)
     return render(request,'novo_usuario.html', {'form': form})

@@ -29,7 +29,7 @@ def relatorios(request):
 
 def deleta_relatorio(request, id):
     relatorio.objects.get(id=id).delete()
-    return redirect('lista_relatorios')
+    return redirect('lista_relatorios.html')
 
 def editar_relatorio(request, id):
     relatorio_edit = get_object_or_404( relatorio, id=id)
@@ -37,7 +37,7 @@ def editar_relatorio(request, id):
         form = relatorioForm(request.POST, instance= relatorio_edit)
         if form.is_valid():
             form.save()
-            return redirect('lista_relatorios')
+            return redirect('lista_relatorios.html')
     else:
         form = relatorioForm(instance=relatorio_edit)
     return render(request,'novo_relatorio.html', {'form': form})
