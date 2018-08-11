@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Adicionar Novo Alarme!</title>
+    <title>Adicionar Novo Relatório!</title>
 </head>
 {% block body %}
             <body>
@@ -13,21 +13,25 @@
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
                     <h3>Adicionar um novo alarme</h3>
-                        <form class="" action ="{% url 'lista_alarmes' %}"  method ="POST">
+                        <form class="" action ="{% url 'lista_relatorios' %}" method ="POST">
                             {%  csrf_token %}
                             <div class="form-group">
                             <label for="{{ form.tags.id_for_label }}">Tags</label>
-                            {{ form.tags |add_class:"form-control selectpicker"}}
+                            {{ form.tags |add_class:"form-control"}}
                             </div>
                             <div class="form-group">
                             <label for="{{ form.usuarios.id_for_label }}">Usuários</label>
                             {{ form.usuarios |add_class:"form-control" }}
                             </div>
                             <div class="form-group">
-                            <label for="{{ form.trigger.id_for_label }}">Trigger</label>
-                            {{ form.trigger |add_class:"form-control" }}
+                            <label for="{{ form.trigger.id_for_label }}">Data Inicio</label>
+                            {{ form.inicio | add_class:"form-control" | attr:"input_type:date" | attr:"placeholder:MM/DD/YYYY"}}
                             </div>
-                                <button class="btn btn-primary" name="button">Criar Alarme</button>
+                             <div class="form-group">
+                            <label for="{{ form.trigger.id_for_label }}">Data Fim</label>
+                            {{ form.fim | add_class:"form-control" | attr:"input_type:date" | attr:"placeholder:MM/DD/YYYY"}}
+                            </div>
+                                <button class="btn btn-primary" name="button">Criar Relatório</button>
                                 <button class="btn btn-link" name="button">Limpar</button>
                         </form>
                 </div>
