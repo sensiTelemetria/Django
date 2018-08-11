@@ -8,30 +8,32 @@
 <div class="col-sm-1"></div>
 <div class="col-sm-10">
     <div class="row">
-        <h2> Lista de Alarmes</h2>
+        <h2> Lista de Relatorios</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
                    <th> Tags </th>
                    <th> Usuarios </th>
-                   <th> Triggers </th>
+                   <th> Data Início </th>
+                   <th> Data Fim </th>
                    <th colspan="2">  </th>
                 </tr>
             </thead>
             <tbody>
-                {%  for each in alarmes %}
+                {%  for each in relatorios %}
                     <tr>
                          <td> {%  for i in each.tags.all %} {{ i }} {% endfor %}
                         <td> {%  for i in each.usuarios.all %} {{ i }} {% endfor %}
                         </td>
-                        <td> {{ each.trigger}} </td>
-                        <td><a href="{% url 'editar_alarme' each.id %}" class="btn btn-info btn-xs">Editar</a></td>
-                        <td><a href="{% url 'deleta_alarme' each.id %}" class="btn btn-danger btn-xs">Excluir</a></td>
+                        <td> {{ each.inicio}} </td>
+                        <td> {{ each.fim}} </td>
+                        <td><a href="{% url 'editar_relatorio' each.id %}" class="btn btn-info btn-xs">Editar</a></td>
+                        <td><a href="{% url 'deleta_relatorio' each.id %}" class="btn btn-danger btn-xs">Excluir</a></td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a href="{% url 'novo_alarme' %}" class = "btn btn-primary"> Adicionar Novo Alarme</a>
+        <a href="{% url 'novo_relatorio' %}" class = "btn btn-primary"> Adicionar Novo Relatorio</a>
     </div>
 </div>
 <div class="col-sm-1"></div>

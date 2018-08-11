@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'tags',
     'alarmes',
     'usuarios',
+    'relatorios',
     'widget_tweaks'
 ]
 

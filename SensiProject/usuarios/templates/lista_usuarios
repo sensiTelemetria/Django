@@ -26,7 +26,7 @@
                         <td> {{ each.email }} </td>
                         <td> {{ each.telefone}} </td>
                         <td> {{ each.chat_id }} </td>
-                        <td><a href="" class="btn btn-info btn-xs">Editar</a></td>
+                        <td><a href="{% url 'editar_usuario' each.id %}" class="btn btn-info btn-xs">Editar</a></td>
                         <td><a href="{% url 'deleta_usuario' each.id %}" class="btn btn-danger btn-xs">Excluir</a></td>
                     </tr>
                 {% endfor %}
