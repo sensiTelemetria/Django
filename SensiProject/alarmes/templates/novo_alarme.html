@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
+{% extends "Base.html" %}
 {% load widget_tweaks %}
 <html lang="en">
 <head>
@@ -15,6 +15,10 @@
                     <h3>Adicionar um novo alarme</h3>
                         <form class="" action ="{% url 'lista_alarmes' %}"  method ="POST">
                             {%  csrf_token %}
+                            <div class="form-group">
+                            <label for="{{ form.tags.id_for_label }}">Nome</label>
+                            {{ form.nome |add_class:"form-control selectpicker"}}
+                            </div>
                             <div class="form-group">
                             <label for="{{ form.tags.id_for_label }}">Tags</label>
                             {{ form.tags |add_class:"form-control selectpicker"}}

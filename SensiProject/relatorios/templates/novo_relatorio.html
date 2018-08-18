@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{% extends "base.html" %}
+{% extends "Base.html" %}
 {% load widget_tweaks %}
 <html lang="en">
 <head>
@@ -12,9 +12,13 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4">
-                    <h3>Adicionar um novo alarme</h3>
+                    <h3>Adicionar um novo relatório</h3>
                         <form class="" action ="{% url 'lista_relatorios' %}" method ="POST">
                             {%  csrf_token %}
+                            <div class="form-group">
+                            <label for="{{ form.tags.id_for_label }}">Nome</label>
+                            {{ form.nome |add_class:"form-control"}}
+                            </div>
                             <div class="form-group">
                             <label for="{{ form.tags.id_for_label }}">Tags</label>
                             {{ form.tags |add_class:"form-control"}}
@@ -24,12 +28,8 @@
                             {{ form.usuarios |add_class:"form-control" }}
                             </div>
                             <div class="form-group">
-                            <label for="{{ form.trigger.id_for_label }}">Data Inicio</label>
-                            {{ form.inicio | add_class:"form-control" | attr:"input_type:date" | attr:"placeholder:MM/DD/YYYY"}}
-                            </div>
-                             <div class="form-group">
-                            <label for="{{ form.trigger.id_for_label }}">Data Fim</label>
-                            {{ form.fim | add_class:"form-control" | attr:"input_type:date" | attr:"placeholder:MM/DD/YYYY"}}
+                            <label for="{{ form.trigger.id_for_label }}">Periodicidade</label>
+                            {{ form.periodicidade | add_class:"form-control" }}
                             </div>
                                 <button class="btn btn-primary" name="button">Criar Relatório</button>
                                 <button class="btn btn-link" name="button">Limpar</button>

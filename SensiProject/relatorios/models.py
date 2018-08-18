@@ -6,10 +6,15 @@ from usuarios import models as usuarios_models
 
 # Create your models here.
 class relatorio(models.Model):
+    PERIODICIDADE_CHOINCES={
+        ('S','Semanal'),
+        ('M','Mensal'),
+        ('D','Diário'),
+    }
+    nome = models.CharField(max_length=20, verbose_name= 'Nome do Relatório')
     tags = models.ManyToManyField(tags_models.tag)
     usuarios = models.ManyToManyField(usuarios_models.usuario)
-    inicio = models.DateField(verbose_name='Data de Início')
-    fim = models.DateField(verbose_name='Data de Término')
+    periodicidade = models.CharField(max_length=1,choices=PERIODICIDADE_CHOINCES,default='M')
 
     def __str__(self):
-        return str(self.id) + ' |  de' + str(self.inicio) +' até ' + str(self.fim)
+        return self.nome

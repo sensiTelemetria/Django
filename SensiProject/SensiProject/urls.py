@@ -26,4 +26,5 @@ urlpatterns = [
     path('alarmes/',include(alarmes_url)),
     path('usuarios/',include(usuarios_url)),
     path('relatorios/',include(relatorios_url)),
+    path('ajuda/',core_views.ajuda, name ='ajuda'),
 ]
