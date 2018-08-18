@@ -1,3 +1,4 @@
+
 from django.db import models
 
 from tags import models as tags_models

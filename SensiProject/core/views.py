@@ -8,3 +8,4 @@ def home(request):
 
 def ajuda(request):
     return render(request,'ajuda.html')
+

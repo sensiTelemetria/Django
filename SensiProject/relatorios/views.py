@@ -41,3 +41,4 @@ def editar_relatorio(request, id):
     else:
         form = relatorioForm(instance=relatorio_edit)
     return render(request,'novo_relatorio.html', {'form': form})
+

@@ -45,4 +45,3 @@ def editar_usuario(request, id):
     return render(request,'novo_usuario.html', {'form': form})
 
 
-

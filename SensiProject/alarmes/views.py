@@ -43,6 +43,3 @@ def editar_alarme(request, id):
     else:
         form = alarmeForm(instance=alarme_edit)
     return render(request,'novo_alarme.html', {'form': form})
-
-
-
